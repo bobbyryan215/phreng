@@ -41,7 +41,7 @@ expect_error(
   "ripserr"
 )
 expect_error(
-  PH_pointcloud(library = "banana"),
+  PH_pointcloud(library = "bad_engine"),
   "GUDHI"
 )
 expect_error(

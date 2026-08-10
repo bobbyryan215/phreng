@@ -41,7 +41,7 @@ expect_error(
   "ripserr"
 )
 expect_error(
-  PH_raster(library = "banana"),
+  PH_raster(library = "bad_engine"),
   "GUDHI"
 )
 expect_error(
@@ -67,6 +67,16 @@ expect_error(
 expect_error(
   PH_raster(sublevel = NA),
   "TRUE or FALSE"
+)
+
+expect_error(
+  PH_raster(sublevel = "TRUE"),
+  "sublevel"
+)
+
+expect_error(
+  PH_raster(sublevel = 1),
+  "sublevel"
 )
 
 # data type test
