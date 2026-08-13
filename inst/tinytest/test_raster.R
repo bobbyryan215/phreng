@@ -15,6 +15,22 @@ expect_equal(spec@max_dimension, 1)
 expect_equal(spec@max_scale, 2)
 expect_equal(spec@sublevel, TRUE)
 
+# default argument test
+spec <- PH_raster()
+
+expect_inherits(spec, "phreng::PH_raster")
+expect_equal(spec@engine, "TDA")
+expect_true(is.na(spec@library))
+expect_equal(spec@max_dimension, 1)
+expect_equal(spec@filtration, "cubical")
+expect_true(is.na(spec@max_scale))
+expect_equal(spec@sublevel, TRUE)
+
+# max_scale test
+spec <- PH_raster(max_scale = 10)
+
+expect_equal(spec@max_scale, 10)
+
 # validator tests
 expect_error(
   PH_raster(engine = "bad_engine"),
@@ -23,6 +39,10 @@ expect_error(
 expect_error(
   PH_raster(engine = "bad_engine"),
   "ripserr"
+)
+expect_error(
+  PH_raster(library = "bad_engine"),
+  "GUDHI"
 )
 expect_error(
   PH_raster(filtration = "bad_filtration"),
@@ -47,6 +67,16 @@ expect_error(
 expect_error(
   PH_raster(sublevel = NA),
   "TRUE or FALSE"
+)
+
+expect_error(
+  PH_raster(sublevel = "TRUE"),
+  "sublevel"
+)
+
+expect_error(
+  PH_raster(sublevel = 1),
+  "sublevel"
 )
 
 # data type test
