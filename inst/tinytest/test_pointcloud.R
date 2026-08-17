@@ -44,9 +44,6 @@ spec <- PH_pointcloud(max_dimension = 0)
 expect_equal(spec@max_dimension, 0)
 
 # filtration alias tests
-spec <- PH_pointcloud(filtration = "rips")
-expect_equal(spec@filtration, "vietoris_rips")
-
 spec <- PH_pointcloud(filtration = "alphacomplex")
 expect_equal(spec@filtration, "alpha_complex")
 
@@ -56,6 +53,7 @@ expect_equal(spec@filtration, "alpha_shape")
 rips_aliases <- c(
   "vietorisrips",
   "vietoris",
+  "rips",
   "rips_vietoris",
   "ripsvietoris"
 )
