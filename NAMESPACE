@@ -2,6 +2,7 @@
 
 export(PH_pointcloud)
 export(PH_raster)
+export(available_filtrations)
 export(compute_persistence)
 if (getRversion() < "4.3.0") importFrom("S7", "@")
 importFrom(S7,`method<-`)

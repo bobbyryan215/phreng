@@ -4,6 +4,8 @@
 #'
 #' @param filtration Character string specifying filter
 #'
+#' @include engine_metadata.R
+#'
 #' @return Character string that has the recommended engine
 #'
 #' @noRd

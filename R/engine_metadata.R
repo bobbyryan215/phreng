@@ -1,6 +1,6 @@
 #' @title Engine Metadata
 #'
-#' @description This function
+#' @description This function stores the metadata of each filtration
 #'
 #' @noRd
 
