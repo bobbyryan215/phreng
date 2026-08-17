@@ -14,6 +14,23 @@ expect_equal(spec@max_dimension, 1)
 expect_equal(spec@max_diameter, 2)
 expect_equal(spec@max_radius, 1)
 
+# default argument test
+spec <- PH_pointcloud()
+
+expect_inherits(spec, "phreng::PH_pointcloud")
+expect_equal(spec@engine, "TDA")
+expect_true(is.na(spec@library))
+expect_equal(spec@max_dimension, 1)
+expect_equal(spec@filtration, "vietoris_rips")
+expect_true(is.na(spec@max_radius))
+expect_true(is.na(spec@max_diameter))
+
+# max_diameter and max_radius test
+spec <- PH_pointcloud(max_diameter = 10)
+
+expect_equal(spec@max_diameter, 10)
+expect_equal(spec@max_radius, 5)
+
 # validator tests
 expect_error(
   PH_pointcloud(engine = "bad_engine"),
@@ -22,6 +39,10 @@ expect_error(
 expect_error(
   PH_pointcloud(engine = "bad_engine"),
   "ripserr"
+)
+expect_error(
+  PH_pointcloud(library = "bad_engine"),
+  "GUDHI"
 )
 expect_error(
   PH_pointcloud(filtration = "bad_filtration"),
@@ -76,7 +97,7 @@ data <- eurodist
 spec <- PH_pointcloud(
   filtration = "vietoris_rips",
   engine = "ripserr",
-  max_dimension = 1,
+  max_dimension = 1, 
   max_diameter = 2000
 )
 out <- compute_persistence(spec, data)
