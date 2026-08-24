@@ -8,7 +8,7 @@
 #'
 #' @return Character string that has the recommended engine
 #'
-#' @noRd
+#' @export
 
 recommend_engine <- function(filtration) {
 
@@ -20,8 +20,3 @@ recommend_engine <- function(filtration) {
 
   return(supported$engine)
 }
-
-
-recommend_engine("cubical")
-
-

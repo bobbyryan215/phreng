@@ -24,5 +24,3 @@ available_filtrations <- function() {
 
   df
 }
-
-available_filtrations()
