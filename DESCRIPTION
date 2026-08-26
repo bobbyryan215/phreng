@@ -32,9 +32,9 @@ VignetteBuilder: knitr
 Collate: 
     'aaa.R'
     'engine_metadata.R'
+    'available_engines.R'
     'available_filtrations.R'
     'properties.R'
     'ph_classes.R'
     'compute_persistence.R'
     'package_check.R'
-    'recommend_engine.R'

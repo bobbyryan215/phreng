@@ -1,0 +1,7 @@
+"filtration"	"input"	"class"	"engine"
+"vietoris_rips"	"point cloud"	"matrix, dist"	"ripserr"
+"vietoris_rips"	"point cloud"	"matrix, dist"	"TDA"
+"cubical"	"raster"	"matrix, array"	"ripserr"
+"cubical"	"raster"	"matrix, array"	"TDA"
+"alpha_complex"	"point cloud"	"matrix"	"TDA"
+"alpha_shape"	"point cloud"	"matrix"	"TDA"

@@ -11,16 +11,7 @@
 
 available_filtrations <- function() {
 
-  df <- engine_metadata
-
-  rownames(df) <- df$engine
-  df$engine <- NULL
-
-  df <- as.data.frame(t(df))
-
-  df[, c("ripserr", "TDA")] <-
-    lapply(df[, c("ripserr", "TDA")],
-           function(x) ifelse(x == "TRUE", "Yes", "No"))
+  df <- unique(engine_metadata[, c("filtration", "engine")])
 
   df
 }

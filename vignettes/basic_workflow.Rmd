@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(phreng)
 ```
 
-This vignette introduces the basic workflow for computing persistence homology in `phreng`. The user will need to call two functions. The first function creates a *specification* that encapsulates which type of data object and method for computing persistence are being used. The second function takes the specification from the first function and the data for which you are computing persistence.
+This vignette introduces the basic workflow for computing persistence homology in `phreng`.
 
 ## Choosing an Engine
 
@@ -28,21 +28,21 @@ This vignette introduces the basic workflow for computing persistence homology i
 available_filtrations()
 ```
 
-This returns a table showing the filtrations currently supported by each engine.
+This returns a table showing which engines support each currently available filtration.
 
 If you already know which filtration you would like to compute, you can use `phreng` to see which engines support it.
 
 ```{r}
-recommend_engine("cubical")
+available_engines("cubical")
 
-recommend_engine("alpha_shape")
-
-recommend_engine("distance_matrix")
+available_engines("alpha_shape")
 ```
 
 If an unsupported filtration is requested, the function returns an error directing the user toward `available_filtrations()`.
 
 ## Example Workflow
+
+The user will need to call two functions. The first function creates a *specification* that encapsulates which type of data object and method for computing persistence are being used. The second function takes the specification from the first function and the data for which you are computing persistence.
 
 Two specifications designed for point cloud data will be created.
 
