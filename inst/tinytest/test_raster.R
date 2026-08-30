@@ -1,4 +1,4 @@
-spec <- PH_raster(
+spec <- PersistenceRaster(
   filtration = "cubical",
   engine = "ripserr",
   max_dimension = 1,
@@ -7,8 +7,8 @@ spec <- PH_raster(
 )
 
 # constructor test
-expect_inherits(spec, "phreng::PH_raster")
-expect_inherits(spec, "phreng::PH")
+expect_inherits(spec, "phreng::PersistenceRaster")
+expect_inherits(spec, "phreng::Persistence")
 expect_equal(spec@filtration, "cubical")
 expect_equal(spec@engine, "ripserr")
 expect_equal(spec@max_dimension, 1)
@@ -16,9 +16,9 @@ expect_equal(spec@max_scale, 2)
 expect_equal(spec@sublevel, TRUE)
 
 # default argument test
-spec <- PH_raster()
+spec <- PersistenceRaster()
 
-expect_inherits(spec, "phreng::PH_raster")
+expect_inherits(spec, "phreng::PersistenceRaster")
 expect_equal(spec@engine, "TDA")
 expect_true(is.na(spec@library))
 expect_equal(spec@max_dimension, 1)
@@ -27,67 +27,67 @@ expect_true(is.na(spec@max_scale))
 expect_equal(spec@sublevel, TRUE)
 
 # sublevel value tests
-spec <- PH_raster(sublevel = TRUE)
+spec <- PersistenceRaster(sublevel = TRUE)
 expect_equal(spec@sublevel, TRUE)
 
-spec <- PH_raster(sublevel = FALSE)
+spec <- PersistenceRaster(sublevel = FALSE)
 expect_equal(spec@sublevel, FALSE)
 
 # max_scale test
-spec <- PH_raster(max_scale = 10)
+spec <- PersistenceRaster(max_scale = 10)
 
 expect_equal(spec@max_scale, 10)
 
 # max_scale boundary test
-spec <- PH_raster(max_scale = 0)
+spec <- PersistenceRaster(max_scale = 0)
 
 expect_equal(spec@max_scale, 0)
 
 # validator tests
 expect_error(
-  PH_raster(engine = "bad_engine"),
+  PersistenceRaster(engine = "bad_engine"),
   "TDA"
 )
 expect_error(
-  PH_raster(engine = "bad_engine"),
+  PersistenceRaster(engine = "bad_engine"),
   "ripserr"
 )
 expect_error(
-  PH_raster(library = "bad_engine"),
+  PersistenceRaster(library = "bad_engine"),
   "GUDHI"
 )
 expect_error(
-  PH_raster(filtration = "bad_filtration"),
+  PersistenceRaster(filtration = "bad_filtration"),
   "must be vietoris_rips, cubical, alpha_shape, or alpha_complex"
 )
 expect_error(
-  PH_raster(max_dimension = -1),
+  PersistenceRaster(max_dimension = -1),
   "non-negative"
 )
 expect_error(
-  PH_raster(max_dimension = 1.5),
+  PersistenceRaster(max_dimension = 1.5),
   "integer"
 )
 expect_error(
-  PH_raster(engine = "ripserr", library = "GUDHI"),
+  PersistenceRaster(engine = "ripserr", library = "GUDHI"),
   "TDA"
 )
 expect_error(
-  PH_raster(filtration = "vietoris_rips", engine = "ripserr"),
+  PersistenceRaster(filtration = "vietoris_rips", engine = "ripserr"),
   "cubical"
 )
 expect_error(
-  PH_raster(sublevel = NA),
+  PersistenceRaster(sublevel = NA),
   "TRUE or FALSE"
 )
 
 expect_error(
-  PH_raster(sublevel = "TRUE"),
+  PersistenceRaster(sublevel = "TRUE"),
   "sublevel"
 )
 
 expect_error(
-  PH_raster(sublevel = 1),
+  PersistenceRaster(sublevel = 1),
   "sublevel"
 )
 
@@ -107,7 +107,7 @@ exit_if_not(
   requireNamespace("phutil", quietly = TRUE)
 )
 data <- volcano
-spec <- PH_raster(
+spec <- PersistenceRaster(
   filtration = "cubical",
   engine = "ripserr",
   max_dimension = 1,
