@@ -4,5 +4,5 @@
 "vietoris_rips"	"point_cloud"	"double"	"TDA"
 "vietoris_rips"	"point_cloud"	"dist"	"TDA"
 "cubical"	"raster"	"double"	"ripserr"
-"cubical"	"raster"	"double"	"TDA"
+"triangulation"	"raster"	"double"	"TDA"
 "alpha"	"point_cloud"	"double"	"TDA"
