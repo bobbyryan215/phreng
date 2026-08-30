@@ -1,5 +1,5 @@
 #' @include aaa.R
-#' @include ph_classes.R
+#' @include Persistence_classes.R
 
 class_dist <- new_S3_class("dist")
 
@@ -9,7 +9,7 @@ class_dist <- new_S3_class("dist")
 #'  the user specification and the class of the data. The function standardizes
 #'  output by converting it to a `persistence` object.
 #'
-#' @param object user specification of class [PH_pointcloud] or [PH_raster]
+#' @param object user specification of class [PersistencePointCloud] or [PersistenceRaster]
 #' @param data object on which to compute persistent homology, must be of a
 #'  class compatible with object
 #' @param ... additional engine-specific arguments
@@ -24,7 +24,7 @@ compute_persistence <- new_generic("compute_persistence", c("object", "data"))
 
 method(
   compute_persistence,
-  list(PH_pointcloud, class_dist)
+  list(PersistencePointCloud, class_dist)
 ) <- function(object, data) {
   check_packages(object)
   res <- NULL
@@ -64,7 +64,7 @@ method(
 
 method(
   compute_persistence,
-  list(PH_pointcloud, class_double)
+  list(PersistencePointCloud, class_double)
 ) <- function(object, data) {
   check_packages(object)
   res <- NULL
@@ -137,13 +137,13 @@ method(
     res <- as_persistence(res)
     res
   } else {
-    stop("Data must be a matrix or an array for PH_pointcloud")
+    stop("Data must be a matrix or an array for `PersistencePointCloud()`.")
   }
 }
 
 method(
   compute_persistence,
-  list(PH_raster, class_double)
+  list(PersistenceRaster, class_double)
 ) <- function(object, data) {
   check_packages(object)
   res <- NULL
@@ -182,6 +182,6 @@ method(
     res <- as_persistence(res)
     res
   } else {
-    stop("Data must be a matrix or an array for PH_raster")
+    stop("Data must be a matrix or an array for `PersistenceRaster()`.")
   }
 }
