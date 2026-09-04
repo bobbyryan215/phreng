@@ -4,14 +4,16 @@
 \alias{available_engines}
 \title{Available Engines}
 \usage{
-available_engines(filtration)
+available_engines(filtration, input = NULL)
 }
 \arguments{
-\item{filtration}{Character string specifying filter}
+\item{filtration}{Character string specifying filtration}
+
+\item{input}{Character string specifying input type}
 }
 \value{
 Character vector that has the available engines
 }
 \description{
-Lists the engines available for a filtration
+Lists the engines available for a filtration and input type
 }

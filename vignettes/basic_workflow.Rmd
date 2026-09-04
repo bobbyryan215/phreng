@@ -35,7 +35,7 @@ If you already know which filtration you would like to compute, you can use `phr
 ```{r}
 available_engines("cubical")
 
-available_engines("alpha_shape")
+available_engines("alpha")
 ```
 
 If an unsupported filtration is requested, the function returns an error directing the user toward `available_filtrations()`.
